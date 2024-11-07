@@ -1,5 +1,7 @@
 package com.practice.member.entity;
 
+import com.practice.member.dto.MemberDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,4 +28,12 @@ public class MemberEntity {
 
 	@Column
 	private String memberName;
+
+	public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
+		MemberEntity memberEntity = new MemberEntity();
+		memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+		memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+		memberEntity.setMemberName(memberDTO.getMemberName());
+		return memberEntity;
+	}
 }
